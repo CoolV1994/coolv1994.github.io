@@ -1,0 +1,48 @@
+---
+layout: page
+title: Contact Me
+navbar: Contact
+---
+
+<form>
+  <input type="text" name="name" placeholder="Full Name" class="form-control" /><br />
+  <input type="text" name="email"  placeholder="E-Mail Address" class="form-control" /><br />
+  <input type="text" name="subject" placeholder="Message Subject" class="form-control" /><br />
+  <textarea type="text" name="message" rows="5" placeholder="Your message..." class="form-control" ></textarea><br />
+  <input type="text" name="_gotcha" style="display:none" /><br />
+  <button type="submit" class="btn btn-primary">Send E-Mail</button>
+</form>
+
+<script type="text/javascript">
+    var contactForm = document.querySelector('form'),
+    inputName = contactForm.querySelector('[name="name"]'),
+    inputEmail = contactForm.querySelector('[name="email"]'),
+    inputSubject = contactForm.querySelector('[name="subject"]'),
+    inputMessage = contactForm.querySelector('[name="message"]'),
+    sendButton = contactForm.querySelector('button');
+
+    sendButton.addEventListener('click', function(event){
+      event.preventDefault();
+
+      sendButton.innerHTML = 'Sending...';
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://projects.coolv1994.com/E-Mail/', true);
+      xhr.setRequestHeader("Accept", "application/json")
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+
+      xhr.send(
+        "name=" + inputName.value +
+        "&email=" + inputEmail.value +
+        "&subject=" + inputSubject.value +
+        "&message=" + inputMessage.value);
+
+      xhr.onloadend = function (res) {
+        if (res.target.status === 200){
+          sendButton.innerHTML = 'Sent!';
+        } else {
+          sendButton.innerHTML = 'Error!';
+        }
+      }
+    });
+</script>

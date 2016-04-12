@@ -1,0 +1,16 @@
+# Site settings
+title: CoolV1994
+description: >
+  CoolV's personal site and blog.
+baseurl: ""
+url: "http://coolv1994.github.io"
+
+# Build settings
+markdown: kramdown
+
+# Collections
+collections:
+  projects:
+    output: true
+    navbar: Projects
+    url: /projects/
