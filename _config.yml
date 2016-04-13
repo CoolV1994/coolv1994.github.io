@@ -3,7 +3,7 @@ title: CoolV1994
 description: >
   CoolV's personal site and blog.
 baseurl: ""
-url: "http://coolv1994.github.io"
+url: "https://www.coolv1994.com"
 
 # Build settings
 markdown: kramdown
