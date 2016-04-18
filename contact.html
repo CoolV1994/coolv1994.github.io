@@ -19,15 +19,20 @@ navbar: Contact
     inputEmail = contactForm.querySelector('[name="email"]'),
     inputSubject = contactForm.querySelector('[name="subject"]'),
     inputMessage = contactForm.querySelector('[name="message"]'),
+    inputBot = contactForm.querySelector('[name="_gotcha"]'),
     sendButton = contactForm.querySelector('button');
 
-    sendButton.addEventListener('click', function(event){
+    sendButton.addEventListener('click', function(event) {
       event.preventDefault();
+
+      if (inputBot.value) {
+        return;
+      }
 
       sendButton.innerHTML = 'Sending...';
 
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://projects.coolv1994.com/E-Mail/', true);
+      xhr.open('POST', 'https://projects.coolv1994.com/E-Mail/Send', true);
       xhr.setRequestHeader("Accept", "application/json")
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
 
@@ -37,8 +42,8 @@ navbar: Contact
         "&subject=" + inputSubject.value +
         "&message=" + inputMessage.value);
 
-      xhr.onloadend = function (res) {
-        if (res.target.status === 200){
+      xhr.onloadend = function(result) {
+        if (result.target.status === 200) {
           sendButton.innerHTML = 'Sent!';
         } else {
           sendButton.innerHTML = 'Error!';
