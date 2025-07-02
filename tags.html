@@ -16,6 +16,14 @@ title: Tags
           <h3 class="panel-title">Tags</h3>
         </div><!-- /.heading -->
         <div class="panel-body">
+
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          {% for tag in site.tags %}
+            <!-- active -->
+            <a class="nav-link" id="tag-{{ tag | first }}" data-toggle="pill" href="#{{ tag | first }}" role="tab" aria-controls="tag-{{ tag | first }}" aria-selected="true">{{ tag | first }}</a>
+          {% endfor %}
+          </div>
+
           <ul class="list-unstyled">
           {% for tag in site.tags %}
             <li><a href="#{{ tag | first }}">{{ tag | first }}</a></li>
@@ -28,26 +36,33 @@ title: Tags
 
   <div class="col-sm-8 blog-main">
 
+<div class="tab-content" id="v-pills-tabContent">
+
 {% for tag in site.tags %}
+<!-- show active -->
+<div class="tab-pane fade" id="tag-{{ tag | first }}" role="tabpanel" aria-labelledby="tag-{{ tag | first }}">
   <div class="panel panel-default" id="#{{ tag | first }}">
     <div class="panel-heading">
       <h3 class="panel-title">{{ tag | first }}</h3>
     </div><!-- /.heading -->
     <div class="panel-body">
-      <ul class="list-unstyled">
+      <ul>
       {% for posts in tag %}
        {% for post in posts %}
         {% if post.url %}
         <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
         {% else %}
         <li>{{ post.title }}</li>
-        {% endif %}s
+        {% endif %}
        {% endfor %}
       {% endfor %}
       </ul>
     </div><!-- /.body -->
   </div><!-- /.panel -->
+</div>
 {% endfor %}
+
+</div>
 
   </div><!-- /.main -->
 
