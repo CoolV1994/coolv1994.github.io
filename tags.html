@@ -9,38 +9,28 @@ title: Tags
 
 <div class="row">
 
-  <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+  <div class="col-sm-3 blog-sidebar">
     <div class="sidebar-module">
-      <div class="panel panel-default" id="#{{ tag | first }}">
+      <div class="panel panel-default" id="index">
         <div class="panel-heading">
           <h3 class="panel-title">Tags</h3>
         </div><!-- /.heading -->
         <div class="panel-body">
 
-          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <div class="nav flex-column nav-pills" id="tag_index" role="tablist" aria-orientation="vertical">
           {% for tag in site.tags %}
-            <!-- active -->
-            <a class="nav-link" id="tag-{{ tag | first }}" data-toggle="pill" href="#{{ tag | first }}" role="tab" aria-controls="tag-{{ tag | first }}" aria-selected="true">{{ tag | first }}</a>
+            <a class="nav-link" id="tag-{{ tag | first }}" href="#{{ tag | first }}" role="tab">{{ tag | first }}</a>
           {% endfor %}
           </div>
 
-          <ul class="list-unstyled">
-          {% for tag in site.tags %}
-            <li><a href="#{{ tag | first }}">{{ tag | first }}</a></li>
-          {% endfor %}
-          </ul>
         </div><!-- /.body -->
       </div><!-- /.panel -->
     </div><!-- /.module -->
   </div><!-- /.sidebar -->
 
-  <div class="col-sm-8 blog-main">
-
-<div class="tab-content" id="v-pills-tabContent">
+  <div class="col-sm-9 blog-main">
 
 {% for tag in site.tags %}
-<!-- show active -->
-<div class="tab-pane fade" id="tag-{{ tag | first }}" role="tabpanel" aria-labelledby="tag-{{ tag | first }}">
   <div class="panel panel-default" id="#{{ tag | first }}">
     <div class="panel-heading">
       <h3 class="panel-title">{{ tag | first }}</h3>
@@ -59,10 +49,7 @@ title: Tags
       </ul>
     </div><!-- /.body -->
   </div><!-- /.panel -->
-</div>
 {% endfor %}
-
-</div>
 
   </div><!-- /.main -->
 
