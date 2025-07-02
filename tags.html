@@ -37,7 +37,7 @@ title: Tags
       <h4>Tags</h4>
       <ul class="list-unstyled">
 {% for tag in site.tags %}
-      <li><a href="#{{ tag }}">{{ tag.label }}</a></li>
+      <li><a href="#{{ tag | first }}">{{ tag | first }}</a></li>
 {% endfor %}
       </ul>
     </div><!-- /.module -->
