@@ -17,8 +17,8 @@ title: Categories
         </div><!-- /.heading -->
         <div class="panel-body">
           <ul class="list-unstyled">
-{% for category in site.projects.categories %}
-            <li><a href="#{{ category | first }}">{{ category | first }}</a></li>
+{% for collection in site.collections %}
+            <li><a href="#{{ collection | first }}">{{ collection | first }}</a></li>
 {% endfor %}
           </ul>
         </div><!-- /.body -->
@@ -39,15 +39,15 @@ title: Categories
     {% for post in posts %}
       {% if post.url %}
         <!-- If Index Matches Post Collection -->
-        {% if page.collection %}
+        <!-- {% if page.collection %} -->
           {% if page.collection == post.collection %}
         <!-- Collection Specific Posts -->
-        <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+        <li><a href="{{ post.url | prepend: site.baseurl }}">-- {{ post.title }} --</a></li>
           {% endif %}
-        {% else %}
+        <!-- {% else %} -->
         <!-- All Posts -->
         <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
-        {% endif %}
+        <!-- {% endif %} -->
         <!-- End If Collection -->
       {% endif %}
     {% endfor %}
