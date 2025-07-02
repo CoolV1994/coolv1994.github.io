@@ -12,7 +12,7 @@ title: Tags
           <h3 class="panel-title">Tags</h3>
         </div><!-- /.heading -->
         <div class="panel-body">
-          <ul class="list-unstyled">
+          <ul>
 {% for tag in site.tags %}
             <li><a href="#{{ tag | first }}">{{ tag | first }}</a></li>
 {% endfor %}
