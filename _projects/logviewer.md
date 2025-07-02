@@ -2,6 +2,7 @@
 layout: page
 title: Server Log Viewer
 excerpt: A tool to easily read your server .log files. This can also be used to monitor your server live.
+categories: gawdtech
 ---
 
 As an administrator, having to go through and read log files can be quite a pain. Especially when you log looks like this...
