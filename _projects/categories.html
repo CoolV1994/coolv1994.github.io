@@ -28,36 +28,36 @@ title: Categories
 
   <div class="col-sm-9 blog-main">
 
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{ collection.label }}</h3>
+    </div><!-- /.heading -->
+    <div class="panel-body">
+{% for item in site.projects %}
+  {% for variable in item %}
+    {{ variable }}: {{ item[variable] }}
+  {% endfor %}
+{% endfor %}
+    </div><!-- /.body -->
+  </div><!-- /.panel -->
+
+
 {% for collection in site.collections %}
 
-  <div class="panel panel-default" id="{{ collection | first }}">
+  <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">{{ collection | first }}</h3>
+      <h3 class="panel-title">{{ collection.label }}</h3>
     </div><!-- /.heading -->
     <div class="panel-body">
       <ul class="list-unstyled">
   {% for posts in collection %}
+        <li>{{ posts }}</li>
     {% for post in posts %}
+        <li>-- {{ post }}</li>
       {% if post.url %}
         <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
       {% endif %}
-    {% endfor %}
-  {% endfor %}
-      </ul>
-    </div><!-- /.body -->
-  </div><!-- /.panel -->
-
-  <div class="panel panel-default" id="{{ collection | first }}">
-    <div class="panel-heading">
-      <h3 class="panel-title">{{ collection | first }}</h3>
-    </div><!-- /.heading -->
-    <div class="panel-body">
-      <p>{{ collection.categories }}</p>
-      <p>{{ collection.categories | first }}</p>
-      <ul class="list-unstyled">
-  {% for categories in collection %}
-    {% for category in categories %}
-        <li><a href="#{{ category }}">{{ category | first }}</a></li>
     {% endfor %}
   {% endfor %}
       </ul>
