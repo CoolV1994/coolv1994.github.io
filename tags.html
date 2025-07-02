@@ -9,6 +9,17 @@ title: Tags
 
 <div class="row">
 
+  <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module">
+      <h4>Tags</h4>
+      <ul class="list-unstyled">
+{% for tag in site.tags %}
+      <li><a href="#{{ tag | first }}">{{ tag | first }}</a></li>
+{% endfor %}
+      </ul>
+    </div><!-- /.module -->
+  </div><!-- /.sidebar -->
+
   <div class="col-sm-8 blog-main">
 
 {% for tag in site.tags %}
@@ -31,16 +42,5 @@ title: Tags
 {% endfor %}
 
   </div><!-- /.main -->
-
-  <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-    <div class="sidebar-module">
-      <h4>Tags</h4>
-      <ul class="list-unstyled">
-{% for tag in site.tags %}
-      <li><a href="#{{ tag | first }}">{{ tag | first }}</a></li>
-{% endfor %}
-      </ul>
-    </div><!-- /.module -->
-  </div><!-- /.sidebar -->
 
 </div><!-- /.row -->
