@@ -2,6 +2,7 @@
 layout: page
 title: GawdScape Launcher
 excerpt: A fast, moddable, Minecraft launcher.
+categories: gawdscape minecraft
 ---
 
 ![GawdScape Launcher and Log](http://i62.tinypic.com/33z5rfm.png)
